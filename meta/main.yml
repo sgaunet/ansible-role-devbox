@@ -44,4 +44,4 @@ galaxy_info:
     - rhel
 
 dependencies:
-  - role: ansible-role-gh-release-installer
+  - role: sgaunet.gh_role_installer
