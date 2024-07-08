@@ -4,6 +4,10 @@
   ansible.builtin.import_role:
     name: sgaunet.gh_role_installer
     defaults_from: "devbox"
+  vars:
+    gh_role_installer_version: "{{ devbox_version }}"
+    gh_role_installer_os: "{{ devbox_os }}"
+    gh_role_installer_arch: "{{ devbox_arch }}"
 
 # Install xz
 - name: Install xz

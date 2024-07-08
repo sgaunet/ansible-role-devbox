@@ -1,0 +1,6 @@
+---
+
+devbox_version: "latest"
+devbox_bin_path: "/usr/local/bin"
+devbox_os: "linux"
+devbox_arch: "amd64"
