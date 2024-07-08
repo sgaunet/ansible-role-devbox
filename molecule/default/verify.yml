@@ -1,0 +1,18 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat devbox
+      ansible.builtin.stat:
+        path: /usr/local/bin/devbox
+      register: devbox_present
+
+    - name: Check devbox is present
+      ansible.builtin.assert:
+        that:
+          - devbox_present.stat.exists
+        fail_msg: "devbox not setup"
+        success_msg: "devbox is setup"

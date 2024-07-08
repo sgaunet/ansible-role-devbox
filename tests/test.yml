@@ -1,0 +1,6 @@
+---
+- name: Install devbox
+  hosts: localhost
+  remote_user: root
+  roles:
+    - sgaunet.devbox

@@ -1,0 +1,18 @@
+---
+
+- name: Install devbox
+  ansible.builtin.import_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: "devbox"
+
+# Install xz
+- name: Install xz
+  ansible.builtin.package:
+    name: xz
+    state: present
+
+- name: Install Nix
+  ansible.builtin.shell: |
+    sh <(curl -L https://nixos.org/nix/install) --daemon
+  args:
+    creates: /nix  # This avoids re-running the installation if Nix is already installed
