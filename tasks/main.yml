@@ -9,14 +9,38 @@
     gh_role_installer_os: "{{ devbox_os }}"
     gh_role_installer_arch: "{{ devbox_arch }}"
 
-# Install xz
+# Install xz only in redhat
 - name: Install xz
   ansible.builtin.package:
     name: xz
     state: present
+  when: ansible_os_family == 'RedHat'
 
+# Install xz only in debian
+- name: Install xz
+  ansible.builtin.package:
+    name: xz-utils
+    state: present
+  when: ansible_os_family == 'Debian'
+
+# Install curl with apt
+- name: Install curl
+  ansible.builtin.apt:
+    name: curl
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'Debian'
+
+# Download https://nixos.org/nix/install
+- name: Download Nix installer
+  ansible.builtin.get_url:
+    url: https://nixos.org/nix/install
+    dest: /tmp/install-nix.sh
+    mode: 0755
+
+# Execute the installer with the --daemon flag
 - name: Install Nix
-  ansible.builtin.shell: |
-    sh <(curl -L https://nixos.org/nix/install) --daemon
+  ansible.builtin.shell: /tmp/install-nix.sh --daemon
   args:
     creates: /nix  # This avoids re-running the installation if Nix is already installed
+
