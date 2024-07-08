@@ -36,11 +36,10 @@
   ansible.builtin.get_url:
     url: https://nixos.org/nix/install
     dest: /tmp/install-nix.sh
-    mode: 0755
+    mode: "0755"
 
 # Execute the installer with the --daemon flag
 - name: Install Nix
-  ansible.builtin.shell: /tmp/install-nix.sh --daemon
+  ansible.builtin.command: /tmp/install-nix.sh --daemon
   args:
     creates: /nix  # This avoids re-running the installation if Nix is already installed
-
