@@ -20,8 +20,7 @@ tasks:
   linter:
     desc: "execute linter"
     cmds:
-      # - ansible-lint *.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git]
-      - ansible-lint .
+      - source venv/bin/activate && ansible-lint .
 
   test:
     desc: "execute molecule tests"
