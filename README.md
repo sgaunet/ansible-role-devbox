@@ -1,6 +1,6 @@
 # Ansible Role: devbox
 
-[![CI](https://github.com/sgaunet/ansible-role-devbox/workflows/CI/badge.svg?event=push)](https://github.com/sgaunet/ansible-role-devbox/actions?query=workflow%3ACI)
+[![CI](https://github.com/sgaunet/ansible-role-devbox/workflows/CI/badge.svg)](https://github.com/sgaunet/ansible-role-devbox/actions?query=workflow%3ACI)
 
 An Ansible Role that installs [devbox][https://github.com/jetify-com/devbox] on Linux.
 
