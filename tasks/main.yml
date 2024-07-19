@@ -40,6 +40,6 @@
 
 # Execute the installer with the --daemon flag
 - name: Install Nix
-  ansible.builtin.command: /tmp/install-nix.sh --daemon
+  ansible.builtin.command: /tmp/install-nix.sh --daemon --yes
   args:
     creates: /nix  # This avoids re-running the installation if Nix is already installed
