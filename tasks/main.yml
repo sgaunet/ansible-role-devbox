@@ -3,7 +3,7 @@
 - name: Install devbox
   ansible.builtin.import_role:
     name: sgaunet.gh_role_installer
-    defaults_from: "devbox"
+    vars_from: "devbox"
   vars:
     gh_role_installer_version: "{{ devbox_version }}"
     gh_role_installer_os: "{{ devbox_os }}"
